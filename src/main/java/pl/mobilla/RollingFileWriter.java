@@ -5,6 +5,9 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import com.google.common.base.Splitter;
+import com.google.common.collect.Iterables;
+
 
 public class RollingFileWriter implements Closeable {
 	private FileWriter fileWriter;
@@ -20,7 +23,8 @@ public class RollingFileWriter implements Closeable {
 	}
 
 	private File findNewFile(String fileName) {
-		
+		Iterable<String> split = Splitter.on(".").split(fileName);
+		String extension = Iterables.getLast(split);
 		return null;
 	}
 
